@@ -1,0 +1,46 @@
+robot name is: robot
+---------- Successfully Parsed XML ---------------
+root Link: world has 2 child(ren)
+    child(1):  robot2_pedestal_link
+        child(1):  robot2_base_link
+            child(1):  robot2_base
+            child(2):  robot2_shoulder_link
+                child(1):  robot2_upper_arm_link
+                    child(1):  robot2_forearm_link
+                        child(1):  robot2_wrist_1_link
+                            child(1):  robot2_wrist_2_link
+                                child(1):  robot2_wrist_3_link
+                                    child(1):  robot2_ee_link
+                                    child(2):  robot2_tool0
+    child(2):  world_interface
+        child(1):  bin_1_base_link
+            child(1):  bin_1_drop_point
+        child(2):  bin_2_base_link
+            child(1):  bin_2_drop_point
+        child(3):  robot1_pedestal_link
+            child(1):  robot1_base_link
+                child(1):  robot1_base
+                child(2):  robot1_shoulder_link
+                    child(1):  robot1_upper_arm_link
+                        child(1):  robot1_forearm_link
+                            child(1):  robot1_wrist_1_link
+                                child(1):  robot1_wrist_2_link
+                                    child(1):  robot1_wrist_3_link
+                                        child(1):  robot1_ee_link
+                                        child(2):  robot1_tool0
+                                            child(1):  vacuum_gripper1_base_link
+                                                child(1):  vacuum_gripper1_suction_cup
+        child(4):  robot1_pedestal_link
+            child(1):  robot1_base_link
+                child(1):  robot1_base
+                child(2):  robot1_shoulder_link
+                    child(1):  robot1_upper_arm_link
+                        child(1):  robot1_forearm_link
+                            child(1):  robot1_wrist_1_link
+                                child(1):  robot1_wrist_2_link
+                                    child(1):  robot1_wrist_3_link
+                                        child(1):  robot1_ee_link
+                                        child(2):  robot1_tool0
+                                            child(1):  vacuum_gripper1_base_link
+                                                child(1):  vacuum_gripper1_suction_cup
+        child(5):  workcell

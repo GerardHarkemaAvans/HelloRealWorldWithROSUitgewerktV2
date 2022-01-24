@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find turtlebot3_gazebo)/launch/amcl_demo.launch">
+        <arg name="map_file" value="$(find hrwros_week3)/config/map_factory_v1.yaml"/>
+<!--
+        <arg name="map_file" value="$$HOME/hrwros_ws/src/hrwros_week3/config/map_factory_v1.yaml"/>
+-->
+        <arg name="initial_pose_x" value="-4.0"/>
+        <arg name="initial_pose_y" value="-0.2"/>
+    </include>
+
+
+ </launch>

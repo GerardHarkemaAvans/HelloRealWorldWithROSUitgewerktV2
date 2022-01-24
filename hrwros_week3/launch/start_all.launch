@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find hrwros_week3)/launch/hrwros_turtlebot_navigation.launch"/>
+
+
+  <include file="$(find hrwros_support)/launch/turtlebot3_navigation.launch">
+
+        <arg name="map_file" value="$(find hrwros_week3)/config/map_factory_v1.yaml"/>
+        <arg name="open_rviz" value="false"/>
+        <arg name="initial_pose_x" value="-4.0"/>
+        <arg name="initial_pose_y" value="-0.2"/>
+   </include>
+
+  <include file="$(find hrwros_week3)/launch/hrwros_view_navigation.launch"/>
+
+<!--
+
+-->
+
+
+ </launch>
