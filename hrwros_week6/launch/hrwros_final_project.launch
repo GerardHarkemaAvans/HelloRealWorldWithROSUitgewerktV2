@@ -96,8 +96,8 @@
   <!-- Fake localization -->
   <node pkg="fake_localization" type="fake_localization" name="fake_localization" output="screen">
     <remap from="base_pose_ground_truth" to="/ground_truth/state" />
-    <param name="delta_x" value="-4.0" />
-    <param name="delta_y" value="-0.2" />
+    <param name="delta_x" value="0.0" />
+    <param name="delta_y" value="0.0" />
     <param name="delta_yaw" value="0.0" />
     <param name="global_frame_id" value="map" />
     <param name="base_frame_id" value="base_footprint" />
@@ -113,6 +113,6 @@
   <!-- added by gerard -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_odom" args="-0.001 -0.000 -0.010 -0.000 -0.007 -0.003 1.000 map odom"/>
 
-  <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_world" args="4.0 0.2 0 0 0 0 1 map world"/>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_world" args="0.0 0.0 0 0 0 0 1 map world"/>
 
 </launch>

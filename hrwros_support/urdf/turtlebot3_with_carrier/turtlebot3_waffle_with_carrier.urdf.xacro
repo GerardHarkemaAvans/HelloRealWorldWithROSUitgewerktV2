@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<robot name="turtlebot3_waffle_with_carrier" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="cylinder_inertia" params="m r h">
+        <inertia  ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+                    iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+                    izz="${m*r*r/2}" />
+  </xacro:macro>
+
+  <xacro:macro name="box_inertia" params="m x y z">
+          <inertia  ixx="${m*(y*y+z*z)/12}" ixy = "0" ixz = "0"
+                    iyy="${m*(x*x+z*z)/12}" iyz = "0"
+                    izz="${m*(x*x+z*z)/12}" />
+  </xacro:macro>
+
+  <xacro:macro name="sphere_inertia" params="m r">
+          <inertia  ixx="${2*m*r*r/5}" ixy = "0" ixz = "0"
+                    iyy="${2*m*r*r/5}" iyz = "0"
+                    izz="${2*m*r*r/5}" />
+  </xacro:macro>
+
+  <material name="LightGrey">
+      <color rgba="0.7 0.7 0.7 1.0" />
+  </material>
+
+
+  <xacro:include filename="$(find turtlebot3_description)/urdf/turtlebot3_waffle.urdf.xacro"/>
+
+  <link name="carrierplate_link">
+    <visual>
+      <origin xyz="-0.06 0.0 0.0" />
+      <geometry>
+        <box size="0.26 0.26 0.008" />
+      </geometry>
+      <material name="LightGrey"/>
+    </visual>
+    <inertial>
+      <mass value="0.1"/>
+      <xacro:box_inertia m="0.1" x="0.26" y="0.26" z="0.008"/>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.26 0.26 0.008"/>
+      </geometry>
+   </collision>
+  </link>
+
+  <joint name="carrierplate_joint" type="fixed">
+    <origin xyz="0.0 0 0.4" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link" />
+    <child link="carrierplate_link" />
+  </joint>
+
+
+</robot>

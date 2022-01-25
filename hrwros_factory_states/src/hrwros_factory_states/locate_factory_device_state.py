@@ -94,6 +94,8 @@ class LocateFactoryDeviceState(EventState):
 			tbp.header = self._srv_result.header
 			tbp.pose = self._srv_result.pose
 
+			#tbp.pose.position.x += 0.06 # added by gerard for the carrier
+
 			userdata.pose = tbp
 			return 'succeeded'
 
