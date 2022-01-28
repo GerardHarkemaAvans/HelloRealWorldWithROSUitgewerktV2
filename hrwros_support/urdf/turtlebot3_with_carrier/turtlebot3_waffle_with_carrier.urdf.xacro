@@ -24,7 +24,7 @@
   </material>
 
 
-  <xacro:include filename="$(find turtlebot3_description)/urdf/turtlebot3_waffle.urdf.xacro"/>
+  <xacro:include filename="$(find turtlebot3_description)/urdf/turtlebot3_waffle_pi.urdf.xacro"/>
 
   <link name="carrierplate_link">
     <visual>
@@ -35,14 +35,22 @@
       <material name="LightGrey"/>
     </visual>
     <inertial>
-      <mass value="0.1"/>
-      <xacro:box_inertia m="0.1" x="0.26" y="0.26" z="0.008"/>
+      <mass value="0.001"/>
+      <xacro:box_inertia m="0.001" x="0.26" y="0.26" z="0.008"/>
     </inertial>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <box size="0.26 0.26 0.008"/>
       </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.5</mu>
+            <mu2>0.5</mu2>
+          </ode>
+        </friction>
+      </surface>
    </collision>
   </link>
 

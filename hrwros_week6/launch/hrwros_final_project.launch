@@ -17,6 +17,7 @@
         <arg name="open_rviz" value="false"/>
         <arg name="initial_pose_x" value="-4.0"/>
         <arg name="initial_pose_y" value="-0.2"/>
+        <arg name="move_forward_only" value="true"/>
    </include>
 
 

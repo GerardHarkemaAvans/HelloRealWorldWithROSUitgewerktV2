@@ -31,6 +31,7 @@ bool ConveyorSpawner::init(XmlRpc::XmlRpcValue& p)
     return false;
   }
 
+
   // Connect to ROS topics/services/actions/etc.
   if(!connectToROS())
   {

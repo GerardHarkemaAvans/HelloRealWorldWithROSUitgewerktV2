@@ -110,7 +110,7 @@ struct CollisionTag
 
 struct InertialTag
 {
-  InertialTag(const std::string& mass_value = "0.2",
+  InertialTag(const std::string& mass_value = "0.05", // changed by gerard
               const InertiaTag& inertia_tag = InertiaTag(),
               const OriginTag& origin_tag = OriginTag())
     : self(new TiXmlElement ("inertial"))
