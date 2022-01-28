@@ -15,4 +15,11 @@
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>move_base_msgs</exec_depend>
   <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>turtlebot3</exec_depend>
+  <exec_depend>gmapping</exec_depend>
+  <exec_depend>amcl</exec_depend>
+  <exec_depend>navigation</exec_depend>
+  <exec_depend>moveit_python</exec_depend>
+
+
 </package>
