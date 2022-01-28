@@ -114,6 +114,6 @@
   <!-- added by gerard -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_odom" args="-0.001 -0.000 -0.010 -0.000 -0.007 -0.003 1.000 map odom"/>
 
-  <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_world" args="0.0 0.0 0 0 0 0 1 map world"/>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_world" args="0.25 -0.5 0 0 0 0 1 map world"/>
 
 </launch>

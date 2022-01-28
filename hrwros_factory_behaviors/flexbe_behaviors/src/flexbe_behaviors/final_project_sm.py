@@ -56,10 +56,10 @@ The three robots in the factory move to process the parts
 	def create(self):
 		names1 = ['robot1_shoulder_pan_joint', 'robot1_shoulder_lift_joint', 'robot1_elbow_joint', 'robot1_wrist_1_joint', 'robot1_wrist_2_joint', 'robot1_wrist_3_joint']
 		pick1_group = 'robot1'
-		robot1_loc = Pose2D(x=0.0, y=2.1, theta=-90.0)
+		robot1_loc = Pose2D(x=0.1, y=1.8, theta=-90.0)
 		gripper1 = "vacuum_gripper1_suction_cup"
 		pick2_group = 'robot2'
-		robot2_loc = Pose2D(x=-8, y=-1.5, theta=0.0)
+		robot2_loc = Pose2D(x=-8, y=-1.7, theta=0.0)
 		names2 = ['robot2_shoulder_pan_joint', 'robot2_shoulder_lift_joint', 'robot2_elbow_joint', 'robot2_wrist_1_joint', 'robot2_wrist_2_joint', 'robot2_wrist_3_joint']
 		gripper2 = "vacuum_gripper2_suction_cup"
 		# x:35 y:128, x:594 y:345
