@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>hrwros</name>
+  <version>0.1.0</version>
+  <description>The hrwros workspace</description>
+  <maintainer email="donnie@todo.todo">Mukunda Bharatheesha</maintainer>
+  <author email="donnie@todo.todo">Mukunda Bharatheesha</author>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>depthimage_to_laserscan</exec_depend>
+
+</package>
