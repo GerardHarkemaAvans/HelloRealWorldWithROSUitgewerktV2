@@ -3,8 +3,7 @@ Panels:
     Help Height: 78
     Name: Displays
     Property Tree Widget:
-      Expanded:
-        - /Grid1
+      Expanded: ~
       Splitter Ratio: 0.6694440245628357
     Tree Height: 389
   - Class: rviz/Selection
@@ -137,6 +136,26 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        randje1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        randje2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        randje3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        randje4_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         wheel_left_link:
           Alpha: 1
           Show Axes: false
@@ -302,7 +321,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: world
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -326,7 +345,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 18.961925506591797
+      Distance: 18.419754028320312
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -341,10 +360,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.5047963857650757
+      Pitch: 1.5247963666915894
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.9254088401794434
+      Yaw: 3.1254119873046875
     Saved: ~
 Window Geometry:
   Camera:

@@ -56,10 +56,10 @@ The three robots in the factory move to process the parts
 	def create(self):
 		names1 = ['robot1_shoulder_pan_joint', 'robot1_shoulder_lift_joint', 'robot1_elbow_joint', 'robot1_wrist_1_joint', 'robot1_wrist_2_joint', 'robot1_wrist_3_joint']
 		pick1_group = 'robot1'
-		robot1_loc = Pose2D(x=0.1, y=1.8, theta=-90.0)
+		robot1_loc = Pose2D(x=0.1, y=2.03, theta=0.0)
 		gripper1 = "vacuum_gripper1_suction_cup"
 		pick2_group = 'robot2'
-		robot2_loc = Pose2D(x=-8, y=-1.7, theta=0.0)
+		robot2_loc = Pose2D(x=-8.0, y=-1.7, theta=0.0)
 		names2 = ['robot2_shoulder_pan_joint', 'robot2_shoulder_lift_joint', 'robot2_elbow_joint', 'robot2_wrist_1_joint', 'robot2_wrist_2_joint', 'robot2_wrist_3_joint']
 		gripper2 = "vacuum_gripper2_suction_cup"
 		# x:35 y:128, x:594 y:345
@@ -81,12 +81,12 @@ The three robots in the factory move to process the parts
 
 
 		with _state_machine:
-			# x:62 y:63
-			OperatableStateMachine.add('Move R1 Home',
-										flexbe_manipulation_states__SrdfStateToMoveit(config_name='R1Home', move_group=pick1_group, action_topic='/move_group', robot_name=''),
-										transitions={'reached': 'starts the conveyor belt', 'planning_failed': 'failed', 'control_failed': 'failed', 'param_error': 'failed'},
-										autonomy={'reached': Autonomy.Off, 'planning_failed': Autonomy.Off, 'control_failed': Autonomy.Off, 'param_error': Autonomy.Off},
-										remapping={'config_name': 'config_name', 'move_group': 'move_group', 'robot_name': 'robot_name', 'action_topic': 'action_topic', 'joint_values': 'joint_values', 'joint_names': 'joint_names'})
+			# x:405 y:658
+			OperatableStateMachine.add('Navigate to robot2',
+										MoveBaseState(),
+										transitions={'arrived': 'Detect Part Camera_R2', 'failed': 'failed'},
+										autonomy={'arrived': Autonomy.Off, 'failed': Autonomy.Off},
+										remapping={'waypoint': 'robot2_loc'})
 
 			# x:3 y:496
 			OperatableStateMachine.add('Activate Gripper R2',
@@ -147,6 +147,13 @@ The three robots in the factory move to process the parts
 										transitions={'succeeded': 'Compute place Turtlebot', 'failed': 'failed'},
 										autonomy={'succeeded': Autonomy.Off, 'failed': Autonomy.Off},
 										remapping={'pose': 'pose_turtlebot'})
+
+			# x:62 y:63
+			OperatableStateMachine.add('Move R1 Home',
+										flexbe_manipulation_states__SrdfStateToMoveit(config_name='R1Home', move_group=pick1_group, action_topic='/move_group', robot_name=''),
+										transitions={'reached': 'starts the conveyor belt', 'planning_failed': 'failed', 'control_failed': 'failed', 'param_error': 'failed'},
+										autonomy={'reached': Autonomy.Off, 'planning_failed': Autonomy.Off, 'control_failed': Autonomy.Off, 'param_error': Autonomy.Off},
+										remapping={'config_name': 'config_name', 'move_group': 'move_group', 'robot_name': 'robot_name', 'action_topic': 'action_topic', 'joint_values': 'joint_values', 'joint_names': 'joint_names'})
 
 			# x:1112 y:370
 			OperatableStateMachine.add('Move R1 back Home',
@@ -217,13 +224,6 @@ The three robots in the factory move to process the parts
 										transitions={'arrived': 'LocateTurtlebot', 'failed': 'failed'},
 										autonomy={'arrived': Autonomy.Off, 'failed': Autonomy.Off},
 										remapping={'waypoint': 'robot1_loc'})
-
-			# x:405 y:658
-			OperatableStateMachine.add('Navigate to robot2',
-										MoveBaseState(),
-										transitions={'arrived': 'Detect Part Camera_R2', 'failed': 'failed'},
-										autonomy={'arrived': Autonomy.Off, 'failed': Autonomy.Off},
-										remapping={'waypoint': 'robot2_loc'})
 
 			# x:404 y:61
 			OperatableStateMachine.add('Start feeder',
