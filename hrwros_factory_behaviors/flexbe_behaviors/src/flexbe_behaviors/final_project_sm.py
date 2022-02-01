@@ -81,12 +81,12 @@ The three robots in the factory move to process the parts
 
 
 		with _state_machine:
-			# x:405 y:658
-			OperatableStateMachine.add('Navigate to robot2',
-										MoveBaseState(),
-										transitions={'arrived': 'Detect Part Camera_R2', 'failed': 'failed'},
-										autonomy={'arrived': Autonomy.Off, 'failed': Autonomy.Off},
-										remapping={'waypoint': 'robot2_loc'})
+			# x:62 y:63
+			OperatableStateMachine.add('Move R1 Home',
+										flexbe_manipulation_states__SrdfStateToMoveit(config_name='R1Home', move_group=pick1_group, action_topic='/move_group', robot_name=''),
+										transitions={'reached': 'starts the conveyor belt', 'planning_failed': 'failed', 'control_failed': 'failed', 'param_error': 'failed'},
+										autonomy={'reached': Autonomy.Off, 'planning_failed': Autonomy.Off, 'control_failed': Autonomy.Off, 'param_error': Autonomy.Off},
+										remapping={'config_name': 'config_name', 'move_group': 'move_group', 'robot_name': 'robot_name', 'action_topic': 'action_topic', 'joint_values': 'joint_values', 'joint_names': 'joint_names'})
 
 			# x:3 y:496
 			OperatableStateMachine.add('Activate Gripper R2',
@@ -147,13 +147,6 @@ The three robots in the factory move to process the parts
 										transitions={'succeeded': 'Compute place Turtlebot', 'failed': 'failed'},
 										autonomy={'succeeded': Autonomy.Off, 'failed': Autonomy.Off},
 										remapping={'pose': 'pose_turtlebot'})
-
-			# x:62 y:63
-			OperatableStateMachine.add('Move R1 Home',
-										flexbe_manipulation_states__SrdfStateToMoveit(config_name='R1Home', move_group=pick1_group, action_topic='/move_group', robot_name=''),
-										transitions={'reached': 'starts the conveyor belt', 'planning_failed': 'failed', 'control_failed': 'failed', 'param_error': 'failed'},
-										autonomy={'reached': Autonomy.Off, 'planning_failed': Autonomy.Off, 'control_failed': Autonomy.Off, 'param_error': Autonomy.Off},
-										remapping={'config_name': 'config_name', 'move_group': 'move_group', 'robot_name': 'robot_name', 'action_topic': 'action_topic', 'joint_values': 'joint_values', 'joint_names': 'joint_names'})
 
 			# x:1112 y:370
 			OperatableStateMachine.add('Move R1 back Home',
@@ -224,6 +217,13 @@ The three robots in the factory move to process the parts
 										transitions={'arrived': 'LocateTurtlebot', 'failed': 'failed'},
 										autonomy={'arrived': Autonomy.Off, 'failed': Autonomy.Off},
 										remapping={'waypoint': 'robot1_loc'})
+
+			# x:405 y:658
+			OperatableStateMachine.add('Navigate to robot2',
+										MoveBaseState(),
+										transitions={'arrived': 'Detect Part Camera_R2', 'failed': 'failed'},
+										autonomy={'arrived': Autonomy.Off, 'failed': Autonomy.Off},
+										remapping={'waypoint': 'robot2_loc'})
 
 			# x:404 y:61
 			OperatableStateMachine.add('Start feeder',
