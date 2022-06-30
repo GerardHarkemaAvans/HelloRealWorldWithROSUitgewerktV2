@@ -51,13 +51,15 @@
   </node>
 
   <!-- Velocity muxer and controller for turtlebot-->
+
+<!-- rmoved by gerard
   <node pkg="nodelet" type="nodelet" name="mobile_base_nodelet_manager" args="manager"/>
   <node pkg="nodelet" type="nodelet" name="cmd_vel_mux"
         args="load yocs_cmd_vel_mux/CmdVelMuxNodelet mobile_base_nodelet_manager">
     <param name="yaml_cfg_file" value="$(find hrwros_gazebo)/param/mux.yaml" />
     <remap from="cmd_vel_mux/output" to="mobile_base/commands/velocity"/>
   </node>
-
+-->
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
     <rosparam param="source_list">[/robot1/joint_states,/robot2/joint_states]</rosparam>
